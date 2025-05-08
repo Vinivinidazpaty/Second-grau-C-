@@ -1,0 +1,66 @@
+#include<stdio.h>
+#include<math.h>
+#include<locale.h>
+
+int main () {
+    float Resultado , Raiz1 , Raiz2 , CoeficienteA , CoeficienteB , CoeficienteC;
+    float Delta = 0.0;
+    setlocale(LC_ALL, "Portuguese");
+
+    printf("Digite o valor do coeficiente A:");
+    scanf("%f", &CoeficienteA);
+        if( CoeficienteA == 0){
+            printf("O coeficiente não pode ser 0");
+        }
+
+    printf("Digite o valor do coeficiente B:");
+    scanf("%f", &CoeficienteB);
+    
+    printf("Digite o valor do coeficiente C:");
+    scanf("%f", &CoeficienteC);
+
+        Delta = pow(CoeficienteB,2) - 4 * CoeficienteA * CoeficienteC;
+
+    printf("O valor do Delta da equação é: %.2f \n", Delta);
+
+            if(Delta > 0.0){
+
+                printf("A equação( %.2fx^2+%.2fx+%.2f ) tem duas raízes distintas. \n", CoeficienteA , CoeficienteB , CoeficienteC);
+
+                    Raiz1 = (-CoeficienteB + sqrt(Delta) ) / (2 * CoeficienteA);
+
+                printf("O valor da primeira raiz da equação( %.2fx^2+%.2fx+%.2f) é: %.2f \n", CoeficienteA , CoeficienteB , CoeficienteC , Raiz1);
+
+                    Raiz2 = (-CoeficienteB - sqrt(Delta) ) / (2 * CoeficienteA);
+
+                printf("O valor da segunda raiz da equação( %.2fx^2+%.2fx+%.2f) é: %.2f \n", CoeficienteA , CoeficienteB , CoeficienteC , Raiz2);
+
+            }
+
+            else if(Delta == 0.0){
+
+                printf("As raízes da equação ( %.2fx^2+%.2fx+%.2f ) são iguais. \n", CoeficienteA , CoeficienteB , CoeficienteC);
+            
+                    Raiz1 = (-CoeficienteB + sqrt(Delta) ) / (2 * CoeficienteA);
+
+                printf("O valor da primeira raiz da equação( %.2fx^2+%.2fx+%.2f) é: %.2f \n", CoeficienteA , CoeficienteB , CoeficienteC , Raiz1);
+            
+                printf("As duas raízes são :%.2f e %.2f \n", Raiz1 , Raiz1);
+        }
+
+            else{
+                
+                printf("As raízes da equação ( %.2fx^2+%.2fx+%.2f ) são imaginárias. \n", CoeficienteA , CoeficienteB , CoeficienteC);
+
+                float ParteReal = -CoeficienteB / (2 * CoeficienteA);
+                float ParteImaginaria = sqrt(-Delta) / (2 * CoeficienteA);
+                
+                printf("\n A equação possui duas raízes complexas conjugadas: \n");
+
+                printf("Raiz1 = %.4f + %.4f \n", ParteReal, ParteImaginaria);
+
+                printf("Raiz2 = %.4f - %.4f \n", ParteReal, ParteImaginaria);
+
+            }
+
+}
