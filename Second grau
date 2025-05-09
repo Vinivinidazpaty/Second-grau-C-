@@ -1,66 +1,508 @@
-#include<stdio.h>
-#include<math.h>
-#include<locale.h>
+#include <stdio.h>
+#include <math.h>
+#include <locale.h>
 
-int main () {
-    float Resultado , Raiz1 , Raiz2 , CoeficienteA , CoeficienteB , CoeficienteC;
-    float Delta = 0.0;
-    setlocale(LC_ALL, "Portuguese");
-
-    printf("Digite o valor do coeficiente A:");
-    scanf("%f", &CoeficienteA);
-        if( CoeficienteA == 0){
-            printf("O coeficiente não pode ser 0");
-        }
-
-    printf("Digite o valor do coeficiente B:");
-    scanf("%f", &CoeficienteB);
-    
-    printf("Digite o valor do coeficiente C:");
-    scanf("%f", &CoeficienteC);
-
-        Delta = pow(CoeficienteB,2) - 4 * CoeficienteA * CoeficienteC;
-
-    printf("O valor do Delta da equação é: %.2f \n", Delta);
-
-            if(Delta > 0.0){
-
-                printf("A equação( %.2fx^2+%.2fx+%.2f ) tem duas raízes distintas. \n", CoeficienteA , CoeficienteB , CoeficienteC);
-
-                    Raiz1 = (-CoeficienteB + sqrt(Delta) ) / (2 * CoeficienteA);
-
-                printf("O valor da primeira raiz da equação( %.2fx^2+%.2fx+%.2f) é: %.2f \n", CoeficienteA , CoeficienteB , CoeficienteC , Raiz1);
-
-                    Raiz2 = (-CoeficienteB - sqrt(Delta) ) / (2 * CoeficienteA);
-
-                printf("O valor da segunda raiz da equação( %.2fx^2+%.2fx+%.2f) é: %.2f \n", CoeficienteA , CoeficienteB , CoeficienteC , Raiz2);
-
-            }
-
-            else if(Delta == 0.0){
-
-                printf("As raízes da equação ( %.2fx^2+%.2fx+%.2f ) são iguais. \n", CoeficienteA , CoeficienteB , CoeficienteC);
-            
-                    Raiz1 = (-CoeficienteB + sqrt(Delta) ) / (2 * CoeficienteA);
-
-                printf("O valor da primeira raiz da equação( %.2fx^2+%.2fx+%.2f) é: %.2f \n", CoeficienteA , CoeficienteB , CoeficienteC , Raiz1);
-            
-                printf("As duas raízes são :%.2f e %.2f \n", Raiz1 , Raiz1);
-        }
-
-            else{
-                
-                printf("As raízes da equação ( %.2fx^2+%.2fx+%.2f ) são imaginárias. \n", CoeficienteA , CoeficienteB , CoeficienteC);
-
-                float ParteReal = -CoeficienteB / (2 * CoeficienteA);
-                float ParteImaginaria = sqrt(-Delta) / (2 * CoeficienteA);
-                
-                printf("\n A equação possui duas raízes complexas conjugadas: \n");
-
-                printf("Raiz1 = %.4f + %.4f \n", ParteReal, ParteImaginaria);
-
-                printf("Raiz2 = %.4f - %.4f \n", ParteReal, ParteImaginaria);
-
-            }
-
+void menu() {
+    printf("Resolver problemas né pae\n");
+    printf("Informe a opção de equação que você quer que eu resolva:\n");
+    printf("1. Equação de Primeiro Grau.\n");
+    printf("2. Equação de Segundo Grau.\n");
+    printf("3. Calcular a hipotenusa do Triângulo Retângulo.\n");
+    printf("4. Calcular os catetos do Triângulo Retângulo.\n");
+    printf("5. Calcular área do Triângulo Retângulo.\n");
+    printf("6. Calcular a área do Triângulo Escaleno.\n");
+    printf("7. Calcular a área do Triângulo Isóceles.\n");
+    printf("8. Calcular a área do Triângulo Equilátero.\n");
+    printf("9. Calcular a área do Quadrado.\n");
+    printf("10. Calcular a área do Pentágono.\n");
+    printf("11. Calcular a área do Hexagono.\n");
+    printf("12. Calcular a área do Heptágono.\n");
+    printf("13. Calcular a área do Octágono.\n");
+    printf("14. Calcular a área do Eneágono.\n");
+    printf("15. Calcular a área do Decágono.\n");
+    printf("16. Calcular a área do Undecágono.\n");
+    printf("17. Calcular a área do Dodecágono.\n");
+    printf("18. Calcular a área do Tridecágono.\n");
+    printf("19. Calcular a área do Tetradecágono.\n");
+    printf("20. Calcular a área do Pentadecágono.\n");
+    printf("21. Calcular a área do Hexadecágono.\n");
+    printf("22. Calcular a área do Heptadecágono.\n");
+    printf("23. Calcular a área do Octadecágono.\n");
+    printf("24. Calcular a área do Eneadecágono.\n");
+    printf("25. Calcular a área do Icoságono.\n");
+    printf("26. Calcular o perímetro do Triângulo Retângulo.\n");
+    printf("27. Calcular o perímetro do Triângulo Escaleno.\n");
+    printf("28. Calcular o perímetro do Triângulo Isóceles.\n");
+    printf("29. Calcular o perímetro do Triângulo Equilátero.\n");
+    printf("30. Calcular o perímetro do Quadrado.\n");
+    printf("31. Calcular o perímetro do Pentágono.\n");
+    printf("32. Calcular o perímetro do Hexagono.\n");
+    printf("33. Calcular o perímetro do Heptágono.\n");
+    printf("34. Calcular o perímetro do Octágono.\n");
+    printf("35. Calcular o perímetro do Eneágono.\n");
+    printf("36. Calcular o perímetro do Decágono.\n");
+    printf("37. Calcular o perímetro do Undecágono.\n");
+    printf("38. Calcular o perímetro do Dodecágono.\n");
+    printf("39. Calcular o perímetro do Tridecágono.\n");
+    printf("40. Calcular o perímetro do Tetradecágono.\n");
+    printf("41. Calcular o perímetro do Pentadecágono.\n");
+    printf("42. Calcular o perímetro do Hexadecágono.\n");
+    printf("43. Calcular o perímetro do Heptadecágono.\n");
+    printf("44. Calcular o perímetro do Octadecágono.\n");
+    printf("45. Calcular o perímetro do Eneadecágono.\n");
+    printf("46. Calcular o perímetro do Icoságono.\n");
+    printf("47. Sair.\n");
 }
+
+int main() {
+    int Opcao;
+    float Resultado, Raiz1, Raiz2, CoeficienteA, CoeficienteB, CoeficienteC;
+    float Delta = 0.0;
+    float Hipotenusa = 0.0;
+    float CatetoAdjascente, CatetoOposto, Cateto = 0.0;
+    float Area = 0.0;
+    float Base, Altura;
+    float Lado, Apotema, Perimetro;
+    int NumeroLados;
+    setlocale(LC_ALL, "Portuguese");
+    
+    do {
+        menu();
+        printf("Digite sua opção: ");
+        scanf("%d", &Opcao);
+        
+        switch(Opcao) {
+            case 1:
+                printf("Equação de primeiro grau.\n");
+                printf("Digite o valor do coeficiente A: ");
+                scanf("%f", &CoeficienteA);
+                if(CoeficienteA == 0) {
+                    printf("O coeficiente A não pode ser 0 (ZERO) \n");
+                    printf("Portanto, não é uma equação de primeiro grau! \n");
+                    break;
+                }
+                
+                printf("Digite o valor do coeficiente B: ");
+                scanf("%f", &CoeficienteB);
+
+                Resultado = -(CoeficienteB) / CoeficienteA;
+
+                printf("O resultado da equação de primeiro grau (%.2fx+%.2f) é: %.2f\n", CoeficienteA, CoeficienteB, Resultado);
+                break;
+
+            case 2:
+                printf("Equação de segundo grau.\n");
+                printf("Digite o valor do coeficiente A: ");
+                scanf("%f", &CoeficienteA);
+                if(CoeficienteA == 0) {
+                    printf("O coeficiente A não pode ser 0 (ZERO). \n");
+                    printf("Portanto não é uma equação de segundo grau!\n");
+                    break;
+                }
+
+                printf("Digite o valor do coeficiente B: ");
+                scanf("%f", &CoeficienteB);
+        
+                printf("Digite o valor do coeficiente C: ");
+                scanf("%f", &CoeficienteC);
+
+                Delta = pow(CoeficienteB, 2) - 4 * CoeficienteA * CoeficienteC;
+
+                printf("O valor do Delta da equação é: %.2f \n", Delta);
+
+                if(Delta > 0.0) {
+                    printf("A equação(%.2fx²+%.2fx+%.2f) tem duas raízes distintas.\n", 
+                           CoeficienteA, CoeficienteB, CoeficienteC);
+
+                    Raiz1 = (-CoeficienteB + sqrt(Delta)) / (2 * CoeficienteA);
+                    printf("O valor da primeira raiz da equação é: %.2f\n", Raiz1);
+
+                    Raiz2 = (-CoeficienteB - sqrt(Delta)) / (2 * CoeficienteA);
+                    printf("O valor da segunda raiz da equação é: %.2f\n", Raiz2);
+                }
+                else if(Delta == 0.0) {
+                    printf("As raízes da equação(%.2fx²+%.2fx+%.2f) são iguais.\n", 
+                           CoeficienteA, CoeficienteB, CoeficienteC);
+            
+                    Raiz1 = (-CoeficienteB) / (2 * CoeficienteA);
+                    printf("O valor da raiz da equação é: %.2f\n", Raiz1);
+                    printf("As duas raízes são: %.2f e %.2f\n", Raiz1, Raiz1);
+                }
+                else {
+                    printf("As raízes da equação(%.2fx²+%.2fx+%.2f) são imaginárias.\n", 
+                           CoeficienteA, CoeficienteB, CoeficienteC);
+
+                    float ParteReal = -CoeficienteB / (2 * CoeficienteA);
+                    float ParteImaginaria = sqrt(-Delta) / (2 * CoeficienteA);
+                
+                    printf("\nA equação possui duas raízes complexas conjugadas:\n");
+                    printf("Raiz1 = %.4f + %.4fi\n", ParteReal, ParteImaginaria);
+                    printf("Raiz2 = %.4f - %.4fi\n", ParteReal, ParteImaginaria);
+                }
+                break;
+
+            case 3:
+                printf("Calcular a hipotenusa do triânguo retângulo.\n");
+                printf("Digite o valor do Cateto Oposto: ");
+                scanf("%f", &CatetoOposto);
+
+                printf("Digite o valor do Cateto Adjascente: ");
+                scanf("%f", &CatetoAdjascente);
+
+                    Hipotenusa = sqrt(pow(CatetoOposto, 2) + pow(CatetoAdjascente, 2));
+
+                printf("O valor da hipotenusa do Triângulo Retângulo é: %.2f\n", Hipotenusa);
+                break;
+
+            case 4:
+                printf("Calcular o Cateto do Triângulo Retângulo.\n");
+                printf("Digite o valor da Hipotenusa do Triângulo Retângulo: ");
+                scanf("%f", &Hipotenusa);
+
+                printf("Digite o valor do Cateto do Triângulo Retângulo: ");
+                scanf("%f", &CatetoAdjascente);
+
+                    Cateto = sqrt(pow(Hipotenusa, 2) - pow(CatetoAdjascente, 2));
+
+                printf("O valor do Cateto do Triângulo Retângulo é: %.2f\n", Cateto);
+                break;
+
+            case 5:
+                printf("Calcular Área do Triângulo Retângulo:\n");
+                printf("Digite o valor do Cateto Adjascente do Triângulo Retângulo: ");
+                scanf("%f", &CatetoAdjascente);
+
+                printf("Digite o valor do cateto Oposto do Triângulo Retângulo: ");
+                scanf("%f", &CatetoOposto);
+
+                    Area = (CatetoAdjascente * CatetoOposto) / 2;
+
+                printf("O valor da Área do Triângulo Retângulo é: %.2f\n", Area);
+                break;
+
+            case 6:
+                printf("Calcular a Área do Triângulo Escaleno.\n");
+                printf("Digite o valor da Base do Triângulo Escaleno: ");
+                scanf("%f", &Base);
+
+                printf("Digite o valor da Altura do Triângulo Escaleno: ");
+                scanf("%f", &Altura);
+
+                    Area = (Base * Altura) / 2;
+
+                printf("O valor da Área do Triângulo Escaleno é: %.2f\n", Area);
+                break;
+
+            case 7:
+                printf("Calcular a Área do Triângulo Isóceles.\n");
+                printf("Digite o valor da Base do Triângulo Isóceles: ");
+                scanf("%f", &Base);
+
+                printf("Digite o valor da Altura do Triângulo Isóceles: ");
+                scanf("%f", &Altura);
+
+                    Area = (Base * Altura) / 2;
+                    
+                printf("O valor da Área do Triângulo Isóceles é: %.2f\n", Area);
+                break;
+
+            case 8:
+                printf("Calcular a Área do Triângulo Equilátero.\n");
+                printf("Digite o valor do Lado do Triângulo Equilátero: ");
+                scanf("%f", &Lado);
+
+                    Area = (sqrt(3) * pow(Lado, 2)) / 4;
+                    
+                printf("O valor da Área do Triângulo Equilátero é: %.2f\n", Area);
+                break;
+
+            case 9:
+                printf("Calcular a Área do Quadrado.\n");
+                printf("Digite o valor do Lado do Quadrado: ");
+                scanf("%f", &Lado);
+
+                    Area = pow( Lado, 2 );
+                    
+                printf("O valor da Área do Quadrado é: %.2f\n", Area);
+                break;
+
+            case 10:
+                printf("Calcular a Área do Pentágono.\n");
+                printf("Digite o valor do Lado do Pentágono: ");
+                scanf("%f", &Lado);
+
+                    Apotema = Lado / ( 2 * tan(M_PI / 5) );
+                    Perimetro = 5 * Lado;
+                    Area = ( Perimetro * Apotema ) / 2;
+                    
+                printf("O valor da Área do Pentágono é: %.2f\n", Area);
+                break;
+
+            case 11:
+                printf("Calcular a Área do Hexágono.\n");
+                printf("Digite o valor do Lado do Hexágono: ");
+                scanf("%f", &Lado);
+
+                    Area = ( 3 * sqrt(3) * pow(Lado, 2) ) / 2;
+                    
+                printf("O valor da Área do Hexágono é: %.2f\n", Area);
+                break;
+
+            case 12:
+                printf("Calcular a Área do Heptágono.\n");
+                printf("Digite o valor do Lado do Heptágono: ");
+                scanf("%f", &Lado);
+
+                    Apotema = Lado / ( 2 * tan(180 / 7) );
+                    Perimetro = 7 * Lado;
+                    Area = ( Perimetro * Apotema ) / 2;
+                    
+                printf("O valor da Área do Heptágono é: %.2f\n", Area);
+                break;
+
+            case 13:
+                printf("Calcular a Área do Octágono.\n");
+                printf("Digite o valor do Lado do Octágono: ");
+                scanf("%f", &Lado);
+
+                    Area = 2 * ( 1 + sqrt(2) ) * pow(Lado, 2);
+                    
+                printf("O valor da Área do Octágono é: %.2f\n", Area);
+                break;
+
+            case 14:
+                printf("Calcular a Área do Eneágono.\n");
+                printf("Digite o valor do Lado do Eneágono: ");
+                scanf("%f", &Lado);
+
+                    Apotema = Lado / (2 * tan(M_PI / 9));
+                    Perimetro = 9 * Lado;
+                    Area = (Perimetro * Apotema) / 2;
+                
+                printf("O valor da Área do Eneágono é: %.2f\n", Area);
+                break;
+
+            case 15:
+                printf("Calcular a Área do Decágono.\n");
+                printf("Digite o valor do Lado do Decágono: ");
+                scanf("%f", &Lado);
+
+                    Apotema = Lado / (2 * tan(M_PI / 10));
+                    Perimetro = 10 * Lado;
+                    Area = (Perimetro * Apotema) / 2;
+                    
+                printf("O valor da Área do Decágono é: %.2f\n", Area);
+                break;
+
+            case 16:
+                printf("Calcular a Área do Undecágono.\n");
+                printf("Digite o valor do Lado do Undecágono: ");
+                scanf("%f", &Lado);
+
+                    Apotema = Lado / (2 * tan(M_PI / 11));
+                    Perimetro = 11 * Lado;
+                    Area = (Perimetro * Apotema) / 2;
+                    
+                printf("O valor da Área do Undecágono é: %.2f\n", Area);
+                break;
+
+            case 17:
+                printf("Calcular a Área do Dodecágono.\n");
+                printf("Digite o valor do Lado do Dodecágono: ");
+                scanf("%f", &Lado);
+
+                    Apotema = Lado /  (2 * tan(M_PI / 12) );
+                    Perimetro = 12 * Lado;
+                    Area = ( Perimetro * Apotema ) / 2;
+                    
+                printf("O valor da Área do Dodecágono é: %.2f\n", Area);
+                break;
+
+            case 18:
+                printf("Calcular a Área do Tridecágono.\n");
+                printf("Digite o valor do Lado do Tridecágono: ");
+                scanf("%f", &Lado);
+
+                    Apotema = Lado / ( 2 * tan(M_PI / 13) );
+                    Perimetro = 13 * Lado;
+                    Area = ( Perimetro * Apotema ) / 2;
+                    
+                printf("O valor da Área do Tridecágono é: %.2f\n", Area);
+                break;
+
+            case 19:
+                printf("Calcular a Área do Tetradecágono.\n");
+                printf("Digite o valor do Lado do Tetradecágono: ");
+                scanf("%f", &Lado);
+
+                    Apotema = Lado / ( 2 * tan(M_PI / 14) );
+                    Perimetro = 14 * Lado;
+                    Area = ( Perimetro * Apotema ) / 2; 
+                    
+                printf("O valor da Área do Tetradecágono é: %.2f\n", Area);
+                break;
+
+            case 20:
+                printf("Calcular a Área do Pentadecágono.\n");
+                printf("Digite o valor do Lado do Pentadecágono: ");
+                scanf("%f", &Lado);
+
+                    Apotema = Lado / ( 2 * tan(M_PI / 15) );
+                    Perimetro = 15 * Lado;
+                    Area = ( Perimetro * Apotema ) / 2;
+                    
+                printf("O valor da Área do Pentadecágono é: %.2f\n", Area);
+                break;
+
+            case 21:
+                printf("Calcular a Área do Hexadecágono.\n");
+                printf("Digite o valor do Lado do Hexadecágono: ");
+                scanf("%f", &Lado);
+
+                    Apotema = Lado / ( 2 * tan(M_PI / 16) );
+                    Perimetro = 16 * Lado;
+                    Area = ( Perimetro * Apotema ) / 2;
+
+                printf("O valor da Área do Hexadecágono é: %.2f \n", Area);
+                break;
+
+            case 22:
+                printf("Calcular a Área do Heptadecágono. \n");
+                printf("Digite o valor do Lado do Heptadecágono: ");
+                scanf("%f", &Lado);
+
+                    Apotema = Lado / ( 2 * tan(M_PI / 16) );
+                    Perimetro = 16 * Lado;
+                    Area = ( Perimetro * Apotema ) / 2;
+
+                printf("O valor da Área do Heptadecágono é: %.2f", Area);
+                break;
+
+            case 23:
+                printf("Calcular a Área do Octadecágono. \n");
+                printf("Digite o valor do Lado do Octadecágono: ");
+                scanf(""%f", &Lado);
+
+                    Apotema = Lado / ( 2 * tan(M_PI / 16) );
+                    Perimetro = 16 * Lado;
+                    Area = ( Perimetro * Apotema ) / 2;
+
+                printf("O valor da Área do Octadecágono é: %.2f", Area);
+                break;
+
+            case 24:
+                printf("Calcular a Área do Eneadecágono. \n");
+                printf("Digite o valor do Lado do Eneadecágono:");
+
+                    Apotema = Lado / ( 2 * tan(M_PI / 16) );
+                    Perimetro = 16 * Lado;
+                    Area = ( Perimetro * Apotema ) / 2;
+
+                printf("O valor da Área do Eneadecágono é:%.2f", Area);
+                break;
+
+            case 25:
+                printf("Calcular a Área do Icoságono. \n");
+                printf("Digite o valor do lado do Icoságono:");
+
+                    Apotema = Lado / ( 2 * tan(M_PI / 16) );
+                    Perimetro = 16 * Lado;
+                    Area = ( Perimetro * Apotema ) / 2;
+
+                printf("O valor da Área do Icoságono é: %.2f", Area);
+                break;
+                
+            case 26:
+                printf("Calcular o perímetro do Trinângulo Retângulo");
+                printf("Digite o valor do Cateto Oposto: ");
+                scanf("%f", &CatetoOposto);
+                
+                printf("Digite o valor do Cateto Adjascente: ");
+                scanf("%f", &CatetoAdjascente);
+                
+                printf("Digite o Valor da Hipotenusa:");
+                scanf("%f", &Hipotenusa);
+                
+                    Perimetro = CatetoAdjascente + CatetoOposto + Hipotenusa;
+                
+                printf("O valor do Perímetro é: %.2f", Perimetro);
+                break;
+                
+            case 27:
+                printf("Calcular o Perímetro do Trinângulo Escaleno. \n");
+                printf("Digite o valor do Cateto Oposto: ");
+                scanf("%f", &CatetoOposto);
+                
+                printf("Digite o valor do Cateto Adjascente: ");
+                scanf("%f", &CatetoAdjascente);
+                
+                printf("Digite o Valor da Hipotenusa:");
+                scanf("%f", &Hipotenusa);
+                
+                    Perimetro = CatetoAdjascente + CatetoOposto + Hipotenusa;
+                
+                printf("O valor do Perímetro do Triângulo Escaleno é: %.2f", Perimetro);
+                break;
+                
+            case 28:
+                printf("Calcular o Perímetro do Trinângulo Isóceles. \n");
+                printf("Digite o valor do Cateto Oposto: ");
+                scanf("%f", &CatetoOposto);
+                
+                printf("Digite o valor do Cateto Adjascente: ");
+                scanf("%f", &CatetoAdjascente);
+                
+                printf("Digite o Valor da Hipotenusa:");
+                scanf("%f", &Hipotenusa);
+                
+                    Perimetro = CatetoAdjascente + CatetoOposto + Hipotenusa;
+                
+                printf("O valor do Perímetro do Triângulo Isóceles é: %.2f", Perimetro);
+                break;
+                
+            case 29:
+                printf("Calcular o Perímetro do Trinângulo Equilátero. \n");
+                printf("Digite o valor do Cateto Oposto: ");
+                scanf("%f", &CatetoOposto);
+                
+                printf("Digite o valor do Cateto Adjascente: ");
+                scanf("%f", &CatetoAdjascente);
+                
+                printf("Digite o Valor da Hipotenusa:");
+                scanf("%f", &Hipotenusa);
+                
+                    Perimetro = CatetoAdjascente + CatetoOposto + Hipotenusa;
+                
+                printf("O valor do Perímetro do Triângulo Equilátero é: %.2f", Perimetro);
+                break;
+                
+            case 30:
+                printf("Calcular o Perímetro do Quadrado.\n");
+                printf("Digite o valor do Lado do Quadrado: ");
+                scanf("%f", &Lado);
+
+                    Perimetro = Lado * 4;
+                    
+                printf("O valor do Perímetro do Quadrado é: %.2f\n", Perimetro);
+                break;
+
+                
+                
+                
+                
+                case :
+                printf("Saindo da Resolvedora de problemas...");
+                break;
+            default:
+                printf("Opção inválida. Tente novamente.\n");
+        }
+
+        if (Opcao != ) {
+            printf("Pressione Enter para continuar...");
+            getchar();
+            getchar();
+        }
+
+    } while (Opcao != );
+}
+
