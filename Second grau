@@ -515,7 +515,25 @@ int main() {
 
                 printf("O valor do perímetro do Hexágono é: %.2f \n", Perimetro);
                 break;
+            
+            case 34:
+                printf("Calcular o Perímetro do Octágono. \n");
+                printf("Digite o valor do Perimetro do Octágono: ");
+                scanf(""%f", & Lado);
 
+                    Perimetro = Lado * 8;
+
+                printf("O valor do Perímetro o Octágono é: %.2f ", Perimetro);
+                break;
+            case 35:
+                printf("Calcular o Perímetro do Eneágono. \n ");
+                printf("Digitie o valor do Perímetro do Eneágono. \n");
+                scanf("%f", &Lado);
+
+                    Perimetro = Lado * 9;
+
+                printf("O valor do Perímetro do Eneágono. \n");
+                printf("Digite o valor do
 
 
 
