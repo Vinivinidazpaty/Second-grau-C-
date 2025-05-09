@@ -525,35 +525,138 @@ int main() {
 
                 printf("O valor do Perímetro o Octágono é: %.2f ", Perimetro);
                 break;
+                
             case 35:
                 printf("Calcular o Perímetro do Eneágono. \n ");
-                printf("Digitie o valor do Perímetro do Eneágono. \n");
+                printf("Digite o valor do Lado do Eneágono. \n");
                 scanf("%f", &Lado);
 
                     Perimetro = Lado * 9;
 
-                printf("O valor do Perímetro do Eneágono. \n");
-                printf("Digite o valor do
+                printf("O valor do Perímetro do Eneágono é: %.2f", Perimetro);
+                break;
+                
+            case 36:
+                printf("Calcular o Perímetro do Decágono. \n");
+                printf("Digite o valor do lado do Decágono: ");
+                scanf("%f", &Lado);
+                
+                    Perímetro = Lado * 10;
+                    
+                printf("O valor do Perímetro do Decágono é: %.2f", Perimetro);
+                break;
+                
+            case 37:
+                printf("Calcular o Perímetro do Undecágono. \n");
+                printf("Digite o valor do Lado do Undecágono:");
+                scanf("%f", &Lado);
+                
+                    Perimetro = Lado * 11;
+                    
+                printf("O valor do Perímetro do Undecágono é: %.2f", Perimetro);
+                break;
+            
+            case 38:
+                printf("Calcular o Perímetro do Dodecágono. \n");
+                printf("Digite o valor do Lado do Dodecágono:");
+                scanf("%f", &Lado);
+                
+                    Perimetro = Lado * 12;
+                    
+                printf("O valor do Perímetro do Dodecágono é: %.2f", Perimetro);
+                break;
+            
+            case 39:
+                printf("Calcular o Perímetrodo Tridecágono. \n");
+                printf("Digite o valor do Lado do Tridecágono:");
+                scanf("%f", &Lado);
+                
+                    Perimetro = Lado * 13;
+                    
+                printf("O valor do Perímetro do Tridecágono é: %.2f", Perimetro);
+                break;
+                
+            case 40:
+                printf("Calcular o Perímetro do Tetradecágono. \n");
+                printf("Digite o valor do Lado do Tridecágono:");
+                scanf("%f", &Lado);
+                
+                    Perimetro = Lado * 14;
+                    
+                printf("O valor do Perímetro do Tetradecágono é: %.2f", Perimetro);
+                break;
+                
+            case 41:
+                printf("Calcular o Perímetro do Pentadecágono. \n");
+                printf("Digite o valor do lado do Pentadecágono:");
+                scanf("%f", &Lado);
+                
+                    Perimetro = Lado * 15;
+                    
+                printf("O valor do Perímetro do Pentadecágono é: %.2f", Perimetro);
+                break;
+                
+            case 42:
+                printf("Calcular o Perímetro do Hexadecágono. \n");
+                printf("Digite o valor do Lado do Hexadecágono:");
+                scanf("%f", &Lado);
+                
+                    Perimetro = Lado * 16;
+                    
+                printf("O valor do Perímetro do Hexadecágono é: %.2f", Perimetro);
+                break;
+                
+            case 43:
+                printf("Calcular o Perímetro do Heptadecágono. \n");
+                printf("Digite o valor do Lado do Hexadecágono: ");
+                scanf("%f", &Lado);
+                
+                    Perimetro = Lado * 17;
+                    
+                printf("O valor do Perímetro do Hexadecágono é: %.2f", Perimetro);
+                break;
+                
+            case 44:
+                printf("Calcular o Perímetro do Octadecágono. \n");
+                printf("Digite o valor do Lado do Octadecágono: ");
+                scanf("%f", &Octadecágono);
+                
+                    Perimetro = Lado * 18;
+                    
+                printf("O valor do Perímetro do Octadecágono: %.2f", Perimetro);
+                break;
+                
+            case 45:
+                printf("Calcular o Perímetrodo Eneadecágono. \n");
+                printf("Digite o valor do Lado do Eneadecágono: ");
+                scanf("%f", &Lado);
+                
+                    Perimetro = Lado * 19;
+                    
+                printf|("O valor do Perimetro do Eneadecágono é: %.2f", Perimetro);
+                break;
+                
+            case 46:
+                printf(""
+                    
 
 
 
 
 
 
-
-                case :
+                case 47 :
                 printf("Saindo da Resolvedora de problemas...");
                 break;
             default:
                 printf("Opção inválida. Tente novamente.\n");
         }
 
-        if (Opcao != ) {
+        if (Opcao != 47 ) {
             printf("Pressione Enter para continuar...");
             getchar();
             getchar();
         }
 
-    } while (Opcao != );
+    } while (Opcao != 47 );
 }
-
