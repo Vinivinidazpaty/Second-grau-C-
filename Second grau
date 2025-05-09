@@ -486,10 +486,43 @@ int main() {
                 printf("O valor do Perímetro do Quadrado é: %.2f\n", Perimetro);
                 break;
 
+            case 31:
+                printf("Calcular o Perímetro do Pentágono. \n");
+                printf("Digite o valor do lado do Pentágono: ");
+                scanf("%f", &Lado);
+
+                    Perimetro = Lado * 5;
+
+                printf("O valor do perímetro do Pentágono é: %.2f \n", Perimetro);
+                break;
+
+            case 32:
+                printf("Calcular o Perímetro do Hexágono. \n ");
+                printf("Digite o valor do lado do hexágono: "); 
+                scanf("%f", &Lado);
                 
+                    Perimetro = Lado * 6;
                 
-                
-                
+                printf("O valor do Perímetro do Hexágono é: %.2f \n", Perimetro);
+                break;
+            
+            case 33:
+                printf("Calcular o Perímetro do Heptágono. \n");
+                printf("Digite o valor do Lado do Hexágono: ");
+                scanf("%f", &Lado);
+
+                    Perimetro = Lado * 7;
+
+                printf("O valor do perímetro do Hexágono é: %.2f \n", Perimetro);
+                break;
+
+
+
+
+
+
+
+
                 case :
                 printf("Saindo da Resolvedora de problemas...");
                 break;
